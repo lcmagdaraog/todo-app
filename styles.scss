@@ -57,16 +57,18 @@ body{
 }
 main{  
     padding: 50px 15px;
-   
+    
     header{
+        align-items: center;
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         padding: 0 20px 0 20px;
         margin-bottom: 30px;
         h1{
             font-weight: 700;
             text-transform: uppercase;
-
+            margin-right: 300px;
+            
 
         }
         #theme{
@@ -89,12 +91,14 @@ main{
       
     }
     .checklist{
+        
         align-items: center;
         justify-content: center;
         display: flex;
         flex-direction: column;
         
         .todo{
+            
             box-shadow:  4px 2px 20px  var(--todo-shadow);
             border-radius: 10px 10px 10px 10px;
             margin-bottom: 20px;
@@ -321,7 +325,7 @@ main{
     --font-color-hover: hsl(235, 21%, 11%);
 }
 
-@media all and (min-width:500px) {
+@media all and (min-width:600px) {
     
         .theme-dark {
             --bg-top-image: 0 0  url(./images/bg-desktop-dark.jpg) no-repeat;
