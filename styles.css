@@ -1,0 +1,343 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap");
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font: 400 18px/1 'Josefin Sans', sans-serf;
+  background: var(--bg-top-image);
+  background-color: var(--main-bg);
+  background-size: contain;
+  color: var(--font-color);
+}
+
+.container img {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  z-index: -1;
+  max-height: 35%;
+}
+
+main {
+  padding: 50px 15px;
+}
+
+main header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0 20px 0 20px;
+  margin-bottom: 30px;
+}
+
+main header h1 {
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+main header #theme {
+  display: none;
+}
+
+main header #theme + label::before {
+  content: '';
+  background: url(./images/icon-sun.svg);
+  cursor: pointer;
+  width: 26px;
+  height: 26px;
+  display: block;
+}
+
+main header #theme:checked + label::before {
+  background: url(./images/icon-moon.svg);
+}
+
+main .checklist {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+main .checklist .todo {
+  -webkit-box-shadow: 4px 2px 20px var(--todo-shadow);
+          box-shadow: 4px 2px 20px var(--todo-shadow);
+  border-radius: 10px 10px 10px 10px;
+  margin-bottom: 20px;
+  background: var(--todo-bg);
+  height: 40px;
+  width: 390px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  padding: 30px 0 30px 10px;
+}
+
+main .checklist .todo input {
+  border: none;
+  outline: none;
+  resize: none;
+  margin-left: 10px;
+  background-color: transparent;
+  border: none;
+  color: var(--font-color);
+}
+
+main .checklist .todo .new-todo {
+  padding: 30px 0 30px 10px;
+  width: 100%;
+  height: 100%;
+  background: var(--todo-bg);
+  border-radius: 10px 10px 10px 10px;
+}
+
+main .checklist .todo span {
+  width: 15px;
+  height: 15px;
+  border: 1px solid;
+  border-radius: 50%;
+  margin-right: -10px;
+  opacity: .5;
+  border: 1px solid var(--font-color);
+}
+
+.bot-items {
+  -webkit-box-shadow: 4px 2px 20px var(--todo-shadow);
+          box-shadow: 4px 2px 20px var(--todo-shadow);
+  background: var(--todo-bg);
+  border-radius: 10px 10px 10px 10px;
+}
+
+.bot-items .filter {
+  height: 40px;
+  width: 390px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.bot-items .filter input[type="radio"] {
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+  margin: 0 20px 0 0;
+}
+
+.bot-items .filter input[type="radio"]:checked ~ span {
+  color: #3a7bfd;
+}
+
+.bot-items .filter label {
+  cursor: pointer;
+}
+
+.bot-items .filter label :hover {
+  color: var(--font-color-hover);
+}
+
+#list {
+  background-color: #25273c;
+  border-radius: 10px 10px 0 0;
+  background: var(--todo-bg);
+  -webkit-box-shadow: 4px 2px 20px var(--todo-shadow);
+          box-shadow: 4px 2px 20px var(--todo-shadow);
+}
+
+#list li.hidden {
+  display: none;
+}
+
+#list li {
+  border-bottom: 1px solid var(--font-color);
+  list-style-type: none;
+  width: 390px;
+  height: 40px;
+  -webkit-box-pack: right;
+      -ms-flex-pack: right;
+          justify-content: right;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 30px 0 30px 10px;
+  position: relative;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  display: flex;
+}
+
+#list li .remove {
+  background: url(./images/icon-cross.svg) no-repeat;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+#list li .remove :hover {
+  display: block;
+}
+
+#list li label {
+  position: relative;
+}
+
+#list li .text {
+  width: 100%;
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+#list li input[type="checkbox"] {
+  opacity: 0;
+  cursor: pointer;
+  width: 0;
+  height: 0;
+  border: 1px solid var(--font-color);
+}
+
+#list li .checkmark {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  z-index: 9991;
+  cursor: pointer;
+}
+
+#list li input[type="checkbox"] ~ .checkmark {
+  border: 1px solid;
+  border-radius: 50%;
+}
+
+#list li input[type="checkbox"] ~ .checkmark :hover {
+  border: 0;
+  padding: 1px;
+  background: linear-gradient(135deg, #57ddff, #c058f3);
+}
+
+#list li input[type="checkbox"] ~ .checkmark:hover::before {
+  content: '';
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: linear-gradient(135deg, #57ddff, #c058f3);
+  display: block;
+}
+
+#list li input[type="checkbox"]:checked ~ .checkmark {
+  background: center url(/images/icon-check.svg) no-repeat, linear-gradient(135deg, #57ddff, #c058f3);
+  color: linear-gradient(135deg, #57ddff, #c058f3);
+}
+
+#list li input[type="checkbox"]:checked ~ .text {
+  -webkit-text-decoration: line-through 3px;
+          text-decoration: line-through 3px;
+}
+
+.content .left-clear {
+  -webkit-box-shadow: 4px 2px 20px var(--todo-shadow);
+          box-shadow: 4px 2px 20px var(--todo-shadow);
+  border-radius: 0 0 10px 10px;
+  margin-bottom: 20px;
+  background: var(--todo-bg);
+  height: 40px;
+  width: 390px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  padding: 30px 10px 25px 10px;
+}
+
+.content .left-clear span {
+  cursor: pointer;
+}
+
+.content .left-clear div {
+  cursor: pointer;
+}
+
+.theme-dark {
+  --bg-top-image: 0 0  url(./images/bg-mobile-dark.jpg) no-repeat;
+  --main-bg: hsl(235, 21%, 11%);
+  --todo-bg: hsl(235, 24%, 19%);
+  --todo-shadow: hsl(235, 21%, 11%);
+  --font-color: hsl(234, 39%, 85%);
+  --font-color-hover: #fff;
+  height: 500px;
+}
+
+.theme-light {
+  --bg-top-image: 0 0 url(./images/bg-mobile-light.jpg) no-repeat;
+  --main-bg: hsl(0, 0%, 98%);
+  --todo-bg: hsl(0, 0%, 98%);
+  --todo-shadow: hsl(235, 19%, 35%);
+  --font-color: hsl(236, 9%, 61%);
+  --font-color-hover: hsl(235, 21%, 11%);
+}
+
+@media all and (min-width: 500px) {
+  .theme-dark {
+    --bg-top-image: 0 0  url(./images/bg-desktop-dark.jpg) no-repeat;
+  }
+  .theme-light {
+    --bg-top-image: 0 0 url(./images/bg-desktop-light.jpg) no-repeat;
+  }
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+
+.attribution a {
+  color: lime;
+}
+/*# sourceMappingURL=styles.css.map */

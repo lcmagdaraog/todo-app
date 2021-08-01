@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Todo app</title>
+
+ <link rel="stylesheet" href="styles.css">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js"></script>
+
+</head>
+<body class="theme-dark">
+<div class="container">
+
+  <main>
+    <header>
+      <h1>Todo</h1>
+      <input type="checkbox" class="theme" name="theme" id="theme">
+      <label for="theme"></label>
+      
+    </header>
+    
+  <section class="checklist">
+    <div class="todo" >
+      
+     <span></span>
+      <input type="text" class="new-todo" placeholder="Create a new todo.." id="addItem" name="addItem">
+    
+    </div>
+    <section class="content">
+    <ul id="list" class="list">
+      <li class="item">
+        <label class="list-item" >
+          <input type="checkbox" name="todoItem1">
+          <span class="checkmark"></span>
+          <span class="text">text1</span>
+        </label>
+        <span class="remove"></span>
+      </li>
+      
+      <li class="item">
+        <label class="list-item">
+          <input type="checkbox" name="todoItem2">
+          <span class="checkmark"></span>
+          <span class="text">text2</span>
+        </label>
+        <span class="remove"></span>
+      </li>
+      
+      <li class="item">
+        <label class="list-item">
+          <input type="checkbox" name="todoItem3">
+          <span class="checkmark"></span>
+          <span class="text">text3</span>
+        </label>
+        <span class="remove"></span>
+      </li>
+      
+ 
+ 
+    </ul>
+    <div class="left-clear">
+      <div class="item-left"><span>3 </span>items left</div>
+      <span class="clear"> Clear Completed</span>
+    </div>
+    
+      <div class="bot-items row">
+       
+      <div class="filter item row ">
+        <label >
+        <input type="radio" class="filterAll" name="filter" id="all" checked >
+        <span>All</span>
+      </label>
+        <label >
+        <input type="radio" class="filterAct" name="filter" id="active" >
+        <span>Active</span>
+      </label>
+        <label>
+        <input type="radio" class="filterCom" name="filter" id="completed" >
+        <span>Completed</span>
+        </label>
+      </div>
+      </div>
+    
+  </section>
+</section>
+  
+  
+  </main>
+</div>
+
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Leo Cris Magdaraog</a>.
+  </div>
+  <script src="theme.js"></script>
+  <script>
+     const dragArea = document.querySelector(".list");
+    new Sortable(dragArea, {
+        Animation: 350
+    });
+  </script>
+</body>
+</html>

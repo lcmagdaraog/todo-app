@@ -1,0 +1,350 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap');
+
+
+$colors:(
+    //Primary
+
+    Bright-Blue: hsl(220, 98%, 61%),
+    Check-Background: linear-gradient(135deg, hsl(192, 100%, 67%) , hsl(280, 87%, 65%)),
+    
+    //Neutral
+    
+    //Light Theme
+    
+    Very-Light-Gray: hsl(0, 0%, 98%),
+    Very-Light-Gray-Blue: hsl(236, 33%, 92%),
+    Light-Gray-Blue: hsl(233, 11%, 84%),
+    Dark-Gray-Blue: hsl(236, 9%, 61%),
+    Very-Dark-Gray-Blue: hsl(235, 19%, 35%),
+    
+    //Dark Theme
+    
+    Very-Dark-Blue: hsl(235, 21%, 11%),
+    Very-Dark-Desaturated-Blue: hsl(235, 24%, 19%),
+    Light-Grayish-Blue: hsl(234, 39%, 85%),
+    Ligh-Grayish-Blue-hover: hsl(236, 33%, 92%),
+    Dark-Grayish-Blue: hsl(234, 11%, 52%),
+    Very-Dark-Grayish-Blue: hsl(233, 14%, 35%),
+    Very-Dark-Grayish-Blues: hsl(237, 14%, 26%)
+);
+@function color($color-name){
+    @return map-get($colors,$color-name )
+}
+
+*{
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+}
+
+body{
+    font: 400 18px/1 'Josefin Sans', sans-serf;
+    background: var(--bg-top-image) ;
+    background-color: var(--main-bg);
+    background-size: contain;
+    color: var(--font-color);
+}
+.container{
+    img{
+        position: absolute;
+       display: flex;
+        width:100%;
+        z-index: -1;
+        max-height: 35%;
+    }
+
+}
+main{  
+    padding: 50px 15px;
+   
+    header{
+        display: flex;
+        justify-content: space-between;
+        padding: 0 20px 0 20px;
+        margin-bottom: 30px;
+        h1{
+            font-weight: 700;
+            text-transform: uppercase;
+
+
+        }
+        #theme{
+            display: none;
+        }
+        #theme + label::before{
+            content: '';
+            background: url(./images/icon-sun.svg);
+            cursor: pointer;
+            width: 26px;
+            height: 26px;
+            display: block;
+            
+        }
+        #theme:checked + label::before{
+            background: url(./images/icon-moon.svg);
+            
+
+        }
+      
+    }
+    .checklist{
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+        
+        .todo{
+            box-shadow:  4px 2px 20px  var(--todo-shadow);
+            border-radius: 10px 10px 10px 10px;
+            margin-bottom: 20px;
+            background: var(--todo-bg);
+            height: 40px;
+            width: 390px;
+            align-items: center;
+            justify-content: center;
+            display: flex;
+            flex-direction: row;
+            padding: 30px 0 30px 10px;
+            input{
+                border: none;
+                outline: none;
+                resize: none;
+                margin-left: 10px;
+                background-color: transparent;
+                border: none;    
+                color: var(--font-color);
+
+            }
+           
+            .new-todo{
+                padding: 30px 0 30px 10px;
+                width: 100%;
+                height: 100%;
+                background: var(--todo-bg);
+                border-radius: 10px 10px 10px 10px;
+            }
+            span{
+                width: 15px;
+                height: 15px;
+                border: 1px solid;
+                border-radius: 50%;
+                margin-right: -10px;
+                opacity: .5;
+                border: 1px solid var(--font-color);
+            }
+          
+        }
+    }
+    
+}
+.bot-items{
+    box-shadow:  4px 2px 20px  var(--todo-shadow);  
+    background: var(--todo-bg);
+    border-radius: 10px 10px 10px 10px;   
+        
+        
+        
+    .filter{
+      
+        
+        height: 40px;
+        width: 390px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+   
+        input[type="radio"]{
+           
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+            margin: 0 20px 0 0;
+        }
+        input[type="radio"]:checked ~ span{
+            color: color(Bright-Blue);
+        }
+        label{
+            cursor: pointer;
+            :hover{
+                color: var(--font-color-hover);
+            }
+
+        }
+       
+    }
+}
+
+#list{
+    background-color: color(Very-Dark-Desaturated-Blue);
+    
+    border-radius: 10px 10px 0 0;
+    background: var(--todo-bg);
+    box-shadow:  4px 2px 20px  var(--todo-shadow);
+    li.hidden{
+        display: none;
+    }
+    li{
+      
+        border-bottom: 1px solid var(--font-color);
+        list-style-type: none;
+        width: 390px;
+        height: 40px;
+       justify-content: right;
+       align-items: center;
+       display: flex;
+       padding: 30px 0 30px 10px;
+       
+       position: relative;
+       justify-content: space-between;
+       display: flex;
+       .remove{
+        background: url(./images/icon-cross.svg) no-repeat;
+        width: 18px;
+        height: 18px;
+        cursor: pointer;
+        margin-right: 10px;
+        
+        
+        :hover{
+            display: block;
+        }
+       
+    }
+       label{
+           position: relative;
+       }
+       .text{
+        width: 100%;
+        margin-left: 20px;
+        cursor: pointer;
+
+       }
+       input[type="checkbox"]{
+        opacity: 0;
+        cursor: pointer;
+        width: 0;
+        height: 0;
+        border: 1px solid var(--font-color);
+       
+    } 
+    .checkmark{
+        position: absolute;
+        width: 15px;
+        height: 15px;
+        z-index: 9991;
+        cursor: pointer;
+
+    
+        
+    }
+     input[type="checkbox"] ~ .checkmark{
+        border: 1px solid;
+        border-radius: 50%;
+  
+        
+        
+        :hover{
+            border: 0;
+            padding: 1px;
+            background: color(Check-Background);
+        }
+    }
+     input[type="checkbox"] ~ .checkmark:hover::before{
+        content: '';
+        width: 15px;
+        height: 15px;
+        border-radius:50% ;
+        background-color: color(Check-Background);
+        display: block;
+       
+    }
+      input[type="checkbox"]:checked ~ .checkmark {
+          background: center url(/images/icon-check.svg) no-repeat, color(Check-Background)   ;
+          color: color(Check-Background);
+         
+      }  
+      input[type="checkbox"]:checked ~ .text {
+        text-decoration: line-through 3px;
+      
+       
+    }  
+    }
+   
+ 
+
+   
+}
+.content{
+    .left-clear{
+        box-shadow:  4px 2px 20px  var(--todo-shadow);
+        border-radius: 0 0 10px 10px;
+        margin-bottom: 20px;
+        background: var(--todo-bg);
+        height: 40px;
+        width: 390px;
+        align-items: center;
+        justify-content: space-between;
+        display: flex;
+        flex-direction: row;
+        padding: 30px 10px 25px 10px;
+        span{
+            cursor: pointer;
+        }
+        div{
+            cursor: pointer;
+          
+        }
+       
+        }
+    
+}
+
+.theme-dark {
+    --bg-top-image: 0 0  url(./images/bg-mobile-dark.jpg) no-repeat;
+    --main-bg: hsl(235, 21%, 11%);
+    --todo-bg: hsl(235, 24%, 19%);
+    --todo-shadow: hsl(235, 21%, 11%);
+    --font-color: hsl(234, 39%, 85%);
+    --font-color-hover: #fff;
+    height: 500px;
+}
+
+.theme-light {
+    --bg-top-image: 0 0 url(./images/bg-mobile-light.jpg) no-repeat;
+    --main-bg: hsl(0, 0%, 98%);
+    --todo-bg: hsl(0, 0%, 98%);
+    --todo-shadow: hsl(235, 19%, 35%);
+    --font-color: hsl(236, 9%, 61%);
+    --font-color-hover: hsl(235, 21%, 11%);
+}
+
+@media all and (min-width:500px) {
+    
+        .theme-dark {
+            --bg-top-image: 0 0  url(./images/bg-desktop-dark.jpg) no-repeat;
+           
+        }
+
+        
+.theme-light {
+    --bg-top-image: 0 0 url(./images/bg-desktop-light.jpg) no-repeat;
+  
+}
+    
+}
+
+
+
+
+
+
+.attribution {
+  font-size: 11px;
+  text-align: center; 
+}
+.attribution a {
+     color: hsl(120, 100%, 50%); 
+}
