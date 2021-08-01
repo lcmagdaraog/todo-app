@@ -7,7 +7,7 @@
 }
 
 body {
-  font: 400 18px/1 'Josefin Sans', sans-serf;
+  font: 400 15px/1 'Josefin Sans', sans-serf;
   background: var(--bg-top-image);
   background-color: var(--main-bg);
   background-size: contain;
@@ -334,6 +334,20 @@ main .checklist .todo span {
   .theme-light {
     --bg-top-image: 0 0 url(./images/bg-desktop-light.jpg) no-repeat;
   }
+}
+
+.drag {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-bottom: 20px;
+  color: #9394a5;
 }
 
 .attribution {

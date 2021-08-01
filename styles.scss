@@ -39,11 +39,12 @@ padding: 0;
 }
 
 body{
-    font: 400 18px/1 'Josefin Sans', sans-serf;
+    font: 400 15px/1 'Josefin Sans', sans-serf;
     background: var(--bg-top-image) ;
     background-color: var(--main-bg);
     background-size: contain;
     color: var(--font-color);
+    
 }
 .container{
     img{
@@ -340,7 +341,14 @@ main{
     
 }
 
-
+.drag{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    color: color(Dark-Gray-Blue);
+    
+}
 
 
 
